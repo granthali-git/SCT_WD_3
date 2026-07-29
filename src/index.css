@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-slide {
+  animation: fadeInSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-pop-in {
+  animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animated Perspective Grid Floor */
+.grid-floor {
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(350px) rotateX(65deg);
+  transform-origin: center bottom;
+}
+
+/* Floating Game Icon Drift Animations */
+@keyframes iconFloat1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-32px) rotate(15deg) scale(1.08);
+  }
+}
+
+@keyframes iconFloat2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(32px) rotate(-18deg) scale(1.06);
+  }
+}
+
+@keyframes iconFloat3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(-36px) rotate(-12deg) scale(0.96);
+  }
+}
+
+.animate-icon-float-1 {
+  animation: iconFloat1 9s ease-in-out infinite;
+}
+
+.animate-icon-float-2 {
+  animation: iconFloat2 12s ease-in-out infinite;
+}
+
+.animate-icon-float-3 {
+  animation: iconFloat3 14s ease-in-out infinite;
+}
+
+/* Light Streak Shimmer Animation */
+@keyframes streakShimmer {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scaleX(0.9);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scaleX(1.1);
+  }
+}
+
+.animate-streak-shimmer {
+  animation: streakShimmer 6s ease-in-out infinite;
+}
+
+/* Custom scrollbar styling for review list */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.4);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.6);
+}
+
+/* Print Stylesheet for Result Summary PDF */
+@media print {
+  body, #root, .min-h-screen {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print\:hidden,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  .print\:block {
+    display: block !important;
+  }
+
+  .max-w-xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .max-h-72, .custom-scrollbar {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .custom-scrollbar > div {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #000000 !important;
+    page-break-inside: avoid;
+  }
+
+  p, span, h1, h2, h3, div, strong {
+    color: #000000 !important;
+  }
+}
